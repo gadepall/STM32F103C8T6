@@ -32,16 +32,8 @@ Init_GPIO(); //configure gpio pins
   while (1) {
 
 
-//	 GPIOB->ODR = 0x03FF;//0
+	 GPIOB->ODR = 0x03FF;//0
 //	 GPIOB->ODR = 0x9FFF;//1
-//	 GPIOB->ODR = 0x25FF;//2	 
-//	 GPIOB->ODR = 0x0dFF;//3	 
-//	 GPIOB->ODR = 0x99FF;//4	 
-//	 GPIOB->ODR = 0x49FF;//5	 
-//	 GPIOB->ODR = 0x41FF;//6	 	 
-//	 GPIOB->ODR = 0x1eFF;//7	 	 	 
-//	 GPIOB->ODR = 0x01FF;//8	 	 	 
-	 GPIOB->ODR = 0x09FF;//9	 	 	 
 
   }//end loop
   
