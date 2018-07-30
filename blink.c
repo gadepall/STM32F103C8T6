@@ -1,3 +1,7 @@
+//Blink LED
+//GVV Sharma
+//July 30, 2018
+
 #include "stm32f10x_lib.h"
 #include "stm32f10x_gpio.h"
 #include "stm32f10x_rcc.h"
