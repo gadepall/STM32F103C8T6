@@ -31,8 +31,10 @@ int main()
 	 */
 	while(1)
 	{
-		GPIOB->BSRR = GPIO_BSRR_BS4; //PB4 = 1 (Led OFF)
+//		GPIOB->BSRR = GPIO_BSRR_BS4; //PB4 = 1 (Led OFF)
+//		GPIOB->BSRR = (1<<4); //PB4 = 1 (Led OFF)		
 //		GPIOB->BSRR = GPIO_BSRR_BR4; //PB4 = 0 (Led ON)		
+		GPIOB->BRR = (1<<4); //PB4 = 0 (Led ON)		
 
 	}
 }
