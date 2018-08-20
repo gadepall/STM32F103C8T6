@@ -95,9 +95,6 @@ int main()
 	while(1)
 	{
 		sevenseg(10);
-//		GPIOB->ODR = 0xFC08;//0		
-//		GPIOB->ODR = 0xFE78;//1		
-//		GPIOB->ODR = 0xFC90;//2				
 
 	}
 }
