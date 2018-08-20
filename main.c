@@ -32,7 +32,9 @@ int main()
 	 */
 	while(1)
 	{
-		GPIOB->ODR = 0xFC08;//0
+		GPIOB->ODR &= ~(0x000003F0);//0
+		GPIOB->ODR |= 0x00000008;//0		
+//		GPIOB->ODR = 0xFC08;//0		
 //		GPIOB->ODR = 0xFE78;//1		
 //		GPIOB->ODR = 0xFC90;//2				
 
