@@ -1,5 +1,5 @@
 /*
-GVV Sharma, August 19, 2018
+GVV Sharma, August 20, 2018
 Code released under GNU GPL
 */
 
@@ -32,8 +32,14 @@ int main()
 	 */
 	while(1)
 	{
-		GPIOB->ODR &= ~(0x000003F0);//0
-		GPIOB->ODR |= 0x00000008;//0		
+//Generating 0 without disturbing unused pins
+		GPIOB->BRR = (1<<4)|(1<<5)|(1<<6)|(1<<7)|(1<<8)|(1<<9); // (Led ON)		
+		GPIOB->BSRR = (1<<3); // (Led OFF)					
+		
+//		GPIOB->ODR &= ~(0x000003F0);//0
+//		GPIOB->ODR |= 0x00000008;//0		
+
+/*Generating numbers by changing all pins*/
 //		GPIOB->ODR = 0xFC08;//0		
 //		GPIOB->ODR = 0xFE78;//1		
 //		GPIOB->ODR = 0xFC90;//2				
