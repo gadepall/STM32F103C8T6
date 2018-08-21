@@ -8,6 +8,7 @@ Code released under GNU GPL
  */
 #include "stm32f103xb.h"	
 
+//Getting input bit
 uint8_t get_bit(uint16_t pin)
 {
 		if (((GPIOB->IDR & pin) == 0 ))  
@@ -17,6 +18,7 @@ uint8_t get_bit(uint16_t pin)
 	
 }
 
+//Convert binary to decimal
 uint8_t bin2dec(uint8_t Z, uint8_t Y,uint8_t X,uint8_t W )
 {
 	return W+2*X+4*Y+8*Z;
@@ -111,11 +113,12 @@ int main()
 	 */
 	while(1)
 	{
+		//Get Binary Input
 		W = get_bit(0x1000);//B12
 		X = get_bit(0x2000);//B13
 		Y = get_bit(0x4000);//B14
 		Z = get_bit(0x8000);//B15
-		sevenseg(bin2dec(Z,Y,X,W));
+		sevenseg(bin2dec(Z,Y,X,W));//Display decimal
 
 	}
 }
