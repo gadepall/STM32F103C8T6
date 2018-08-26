@@ -340,101 +340,99 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/crtn.o
  *(.flashtext)
                 0x0800010c                . = ALIGN (0x4)
 
-.text           0x0800010c      0x4c8
+.text           0x0800010c      0x354
                 0x0800010c                . = ALIGN (0x4)
  *(.text)
- .text          0x0800010c      0x1f8 main.o
-                0x0800010c                get_bit
-                0x08000138                bin2dec
-                0x08000180                sevenseg
-                0x08000284                main
- .text          0x08000304      0x260 stm32f10x_it.o
-                0x08000304                NMIException
-                0x08000310                HardFaultException
-                0x08000318                MemManageException
-                0x08000320                BusFaultException
-                0x08000328                UsageFaultException
-                0x08000330                DebugMonitor
-                0x0800033c                SVCHandler
-                0x08000348                PendSVC
-                0x08000354                SysTickHandler
-                0x08000360                WWDG_IRQHandler
-                0x0800036c                PVD_IRQHandler
-                0x08000378                TAMPER_IRQHandler
-                0x08000384                RTC_IRQHandler
-                0x08000390                FLASH_IRQHandler
-                0x0800039c                RCC_IRQHandler
-                0x080003a8                EXTI0_IRQHandler
-                0x080003b4                EXTI1_IRQHandler
-                0x080003c0                EXTI2_IRQHandler
-                0x080003cc                EXTI3_IRQHandler
-                0x080003d8                EXTI4_IRQHandler
-                0x080003e4                DMAChannel1_IRQHandler
-                0x080003f0                DMAChannel2_IRQHandler
-                0x080003fc                DMAChannel3_IRQHandler
-                0x08000408                DMAChannel4_IRQHandler
-                0x08000414                DMAChannel5_IRQHandler
-                0x08000420                DMAChannel6_IRQHandler
-                0x0800042c                DMAChannel7_IRQHandler
-                0x08000438                ADC_IRQHandler
-                0x08000444                USB_HP_CAN_TX_IRQHandler
-                0x08000450                USB_LP_CAN_RX0_IRQHandler
-                0x0800045c                CAN_RX1_IRQHandler
-                0x08000468                CAN_SCE_IRQHandler
-                0x08000474                EXTI9_5_IRQHandler
-                0x08000480                TIM1_BRK_IRQHandler
-                0x0800048c                TIM1_UP_IRQHandler
-                0x08000498                TIM1_TRG_COM_IRQHandler
-                0x080004a4                TIM1_CC_IRQHandler
-                0x080004b0                TIM2_IRQHandler
-                0x080004bc                TIM3_IRQHandler
-                0x080004c8                TIM4_IRQHandler
-                0x080004d4                I2C1_EV_IRQHandler
-                0x080004e0                I2C1_ER_IRQHandler
-                0x080004ec                I2C2_EV_IRQHandler
-                0x080004f8                I2C2_ER_IRQHandler
-                0x08000504                SPI1_IRQHandler
-                0x08000510                SPI2_IRQHandler
-                0x0800051c                USART1_IRQHandler
-                0x08000528                USART2_IRQHandler
-                0x08000534                USART3_IRQHandler
-                0x08000540                EXTI15_10_IRQHandler
-                0x0800054c                RTCAlarm_IRQHandler
-                0x08000558                USBWakeUp_IRQHandler
- .text          0x08000564       0x70 lib/libstm32.a(stm32f10x_vector.o)
-                0x08000564                Reset_Handler
+ .text          0x0800010c       0x84 main.o
+                0x0800010c                delay_us
+                0x0800013c                main
+ .text          0x08000190      0x260 stm32f10x_it.o
+                0x08000190                NMIException
+                0x0800019c                HardFaultException
+                0x080001a4                MemManageException
+                0x080001ac                BusFaultException
+                0x080001b4                UsageFaultException
+                0x080001bc                DebugMonitor
+                0x080001c8                SVCHandler
+                0x080001d4                PendSVC
+                0x080001e0                SysTickHandler
+                0x080001ec                WWDG_IRQHandler
+                0x080001f8                PVD_IRQHandler
+                0x08000204                TAMPER_IRQHandler
+                0x08000210                RTC_IRQHandler
+                0x0800021c                FLASH_IRQHandler
+                0x08000228                RCC_IRQHandler
+                0x08000234                EXTI0_IRQHandler
+                0x08000240                EXTI1_IRQHandler
+                0x0800024c                EXTI2_IRQHandler
+                0x08000258                EXTI3_IRQHandler
+                0x08000264                EXTI4_IRQHandler
+                0x08000270                DMAChannel1_IRQHandler
+                0x0800027c                DMAChannel2_IRQHandler
+                0x08000288                DMAChannel3_IRQHandler
+                0x08000294                DMAChannel4_IRQHandler
+                0x080002a0                DMAChannel5_IRQHandler
+                0x080002ac                DMAChannel6_IRQHandler
+                0x080002b8                DMAChannel7_IRQHandler
+                0x080002c4                ADC_IRQHandler
+                0x080002d0                USB_HP_CAN_TX_IRQHandler
+                0x080002dc                USB_LP_CAN_RX0_IRQHandler
+                0x080002e8                CAN_RX1_IRQHandler
+                0x080002f4                CAN_SCE_IRQHandler
+                0x08000300                EXTI9_5_IRQHandler
+                0x0800030c                TIM1_BRK_IRQHandler
+                0x08000318                TIM1_UP_IRQHandler
+                0x08000324                TIM1_TRG_COM_IRQHandler
+                0x08000330                TIM1_CC_IRQHandler
+                0x0800033c                TIM2_IRQHandler
+                0x08000348                TIM3_IRQHandler
+                0x08000354                TIM4_IRQHandler
+                0x08000360                I2C1_EV_IRQHandler
+                0x0800036c                I2C1_ER_IRQHandler
+                0x08000378                I2C2_EV_IRQHandler
+                0x08000384                I2C2_ER_IRQHandler
+                0x08000390                SPI1_IRQHandler
+                0x0800039c                SPI2_IRQHandler
+                0x080003a8                USART1_IRQHandler
+                0x080003b4                USART2_IRQHandler
+                0x080003c0                USART3_IRQHandler
+                0x080003cc                EXTI15_10_IRQHandler
+                0x080003d8                RTCAlarm_IRQHandler
+                0x080003e4                USBWakeUp_IRQHandler
+ .text          0x080003f0       0x70 lib/libstm32.a(stm32f10x_vector.o)
+                0x080003f0                Reset_Handler
  *(.text.*)
  *(.rodata)
  *(.rodata*)
  *(.glue_7)
- .glue_7        0x080005d4        0x0 linker stubs
+ .glue_7        0x08000460        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x080005d4        0x0 linker stubs
-                0x080005d4                . = ALIGN (0x4)
-                0x080005d4                _etext = .
-                0x080005d4                _sidata = _etext
+ .glue_7t       0x08000460        0x0 linker stubs
+                0x08000460                . = ALIGN (0x4)
+                0x08000460                _etext = .
+                0x08000460                _sidata = _etext
 
-.vfp11_veneer   0x080005d4        0x0
- .vfp11_veneer  0x080005d4        0x0 linker stubs
+.vfp11_veneer   0x08000460        0x0
+ .vfp11_veneer  0x08000460        0x0 linker stubs
 
-.v4_bx          0x080005d4        0x0
- .v4_bx         0x080005d4        0x0 linker stubs
+.v4_bx          0x08000460        0x0
+ .v4_bx         0x08000460        0x0 linker stubs
 
-.init           0x080005d4        0xc
- .init          0x080005d4        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
-                0x080005d4                _init
+.init           0x08000460        0xc
+ .init          0x08000460        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
+                0x08000460                _init
 
-.fini           0x080005e0        0xc
- .fini          0x080005e0        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
-                0x080005e0                _fini
+.fini           0x0800046c        0xc
+ .fini          0x0800046c        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
+                0x0800046c                _fini
 
-.iplt           0x080005ec        0x0
- .iplt          0x080005ec        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
+.iplt           0x08000478        0x0
+ .iplt          0x08000478        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
 
-.rel.dyn        0x080005ec        0x0
- .rel.iplt      0x080005ec        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
+.rel.dyn        0x08000478        0x0
+ .rel.iplt      0x08000478        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
 
-.data           0x20000000        0x0 load address 0x080005d4
+.data           0x20000000        0x0 load address 0x08000460
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
@@ -555,37 +553,37 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/crtn.o
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0x819
+.debug_info     0x00000000      0x795
  *(.debug_info .gnu.linkonce.wi.*)
- .debug_info    0x00000000      0x335 main.o
- .debug_info    0x00000335      0x408 stm32f10x_it.o
- .debug_info    0x0000073d       0xdc lib/libstm32.a(stm32f10x_vector.o)
+ .debug_info    0x00000000      0x2b1 main.o
+ .debug_info    0x000002b1      0x408 stm32f10x_it.o
+ .debug_info    0x000006b9       0xdc lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_abbrev   0x00000000      0x203
+.debug_abbrev   0x00000000      0x1dd
  *(.debug_abbrev)
- .debug_abbrev  0x00000000      0x107 main.o
- .debug_abbrev  0x00000107       0x5a stm32f10x_it.o
- .debug_abbrev  0x00000161       0xa2 lib/libstm32.a(stm32f10x_vector.o)
+ .debug_abbrev  0x00000000       0xe1 main.o
+ .debug_abbrev  0x000000e1       0x5a stm32f10x_it.o
+ .debug_abbrev  0x0000013b       0xa2 lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_line     0x00000000      0x277
+.debug_line     0x00000000      0x252
  *(.debug_line)
- .debug_line    0x00000000      0x100 main.o
- .debug_line    0x00000100      0x11b stm32f10x_it.o
- .debug_line    0x0000021b       0x5c lib/libstm32.a(stm32f10x_vector.o)
+ .debug_line    0x00000000       0xdb main.o
+ .debug_line    0x000000db      0x11b stm32f10x_it.o
+ .debug_line    0x000001f6       0x5c lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_frame    0x00000000      0x758
+.debug_frame    0x00000000      0x704
  *(.debug_frame)
- .debug_frame   0x00000000       0xa8 main.o
- .debug_frame   0x000000a8      0x670 stm32f10x_it.o
- .debug_frame   0x00000718       0x40 lib/libstm32.a(stm32f10x_vector.o)
+ .debug_frame   0x00000000       0x54 main.o
+ .debug_frame   0x00000054      0x670 stm32f10x_it.o
+ .debug_frame   0x000006c4       0x40 lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_str      0x00000000      0x601
+.debug_str      0x00000000      0x5fe
  *(.debug_str)
- .debug_str     0x00000000      0x1a5 main.o
-                                0x1fb (size before relaxing)
- .debug_str     0x000001a5      0x3ed stm32f10x_it.o
+ .debug_str     0x00000000      0x1a2 main.o
+                                0x1e7 (size before relaxing)
+ .debug_str     0x000001a2      0x3ed stm32f10x_it.o
                                 0x4b0 (size before relaxing)
- .debug_str     0x00000592       0x6f lib/libstm32.a(stm32f10x_vector.o)
+ .debug_str     0x0000058f       0x6f lib/libstm32.a(stm32f10x_vector.o)
                                  0xe3 (size before relaxing)
 
 .debug_loc
@@ -763,12 +761,11 @@ _start                                            /usr/lib/gcc/arm-none-eabi/5.4
 atexit                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
                                                   /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/crt0.o
-bin2dec                                           main.o
+delay_us                                          main.o
 exit                                              /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-exit.o)
                                                   /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/crt0.o
 free                                              /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-__call_atexit.o)
 g_pfnVectors                                      lib/libstm32.a(stm32f10x_vector.o)
-get_bit                                           main.o
 hardware_init_hook                                /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/crt0.o
 main                                              main.o
                                                   lib/libstm32.a(stm32f10x_vector.o)
@@ -776,5 +773,4 @@ main                                              main.o
 malloc                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-__atexit.o)
 memset                                            /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/libc.a(lib_a-memset.o)
                                                   /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/crt0.o
-sevenseg                                          main.o
 software_init_hook                                /usr/lib/gcc/arm-none-eabi/5.4.1/../../../arm-none-eabi/lib/crt0.o
