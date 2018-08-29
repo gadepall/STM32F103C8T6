@@ -29,4 +29,7 @@ http://embedded-lab.com/blog/stm32-timers/
 #stm32f103c8 reference page
 https://www.st.com/en/microcontrollers/stm32f103c8.html
 https://electronics.stackexchange.com/questions/305423/how-do-i-set-systick-to-1-ms
+#Timer
+http://en.radzio.dxp.pl/stm32vldiscovery/lesson3,blinking,with,timer.html
+https://electronics.stackexchange.com/questions/132000/stm32-series-microcontroller-calculations-of-timer-variables
 
