@@ -32,4 +32,4 @@ https://electronics.stackexchange.com/questions/305423/how-do-i-set-systick-to-1
 #Timer
 http://en.radzio.dxp.pl/stm32vldiscovery/lesson3,blinking,with,timer.html
 https://electronics.stackexchange.com/questions/132000/stm32-series-microcontroller-calculations-of-timer-variables
-
+https://www.embeddedrelated.com/showarticle/478.php
