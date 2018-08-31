@@ -564,11 +564,11 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/crtn.o
  .debug_abbrev  0x000000b1       0x5a stm32f10x_it.o
  .debug_abbrev  0x0000010b       0xa2 lib/libstm32.a(stm32f10x_vector.o)
 
-.debug_line     0x00000000      0x235
+.debug_line     0x00000000      0x233
  *(.debug_line)
- .debug_line    0x00000000       0xbe main.o
- .debug_line    0x000000be      0x11b stm32f10x_it.o
- .debug_line    0x000001d9       0x5c lib/libstm32.a(stm32f10x_vector.o)
+ .debug_line    0x00000000       0xbc main.o
+ .debug_line    0x000000bc      0x11b stm32f10x_it.o
+ .debug_line    0x000001d7       0x5c lib/libstm32.a(stm32f10x_vector.o)
 
 .debug_frame    0x00000000      0x6d8
  *(.debug_frame)

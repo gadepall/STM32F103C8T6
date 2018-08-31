@@ -20,20 +20,16 @@ int main()
 	 */
 	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
 
-	/*
-	 * Enable the SysTick Timer with
-	 * the CPU clock divided by 8
-	 */
 	TIM1->SMCR  = 0;	//Internal clock, 8MHz	
 	TIM1->PSC	= 3999;	//Prescalar, dividing clock by 4000
-	TIM1->CR1 	= TIM_CR1_CEN;	//enable Timer1
+	TIM1->CR1 	= 0x0001;	//enable Timer1
 	TIM1->ARR 	= 999;	//Load Count
 
 
 	/*
 	 * Enable the PA1 as a digital output
 	 */
-	GPIOA->CRL = 0x00000020;
+	GPIOA->CRL = 0x00000030;
 
 	/*
 	 * Infinite loop
@@ -41,11 +37,11 @@ int main()
 	while(1)
 	{
 		//half second on, half second off
-	if(TIM1->SR & TIM_SR_UIF)//check if ARR count complete
-  {
-  TIM1->SR &= ~TIM_SR_UIF;//clear status register SR
-		GPIOA->ODR ^= (1 << 1);//blink LED through PA1
-  }
+		if(TIM1->SR & 0x0001)//check if ARR count complete
+		{
+			TIM1->SR &= ~0x0001;//clear status register SR
+			GPIOA->ODR ^= (1 << 1);//blink LED through PA1
+		}
 	}
 }
 
