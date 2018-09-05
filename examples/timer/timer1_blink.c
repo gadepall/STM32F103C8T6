@@ -21,9 +21,10 @@ int main()
 	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
 
 	TIM1->SMCR  = 0;	//Internal clock, 8MHz	
-	TIM1->PSC	= 3999;	//Prescalar, dividing clock by 4000
+	TIM1->PSC	= 999;	//Prescalar, dividing clock by 1000
 	TIM1->CR1 	= 0x0001;	//enable Timer1
 	TIM1->ARR 	= 999;	//Load Count
+	TIM1->RCR 	= 3;	//Load Repetition Count	
 
 
 	/*
@@ -44,4 +45,3 @@ int main()
 		}
 	}
 }
-

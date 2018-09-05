@@ -22,7 +22,7 @@ int main()
 
 	TIM2->SMCR  = 0;	//Internal clock, 8MHz	
 	TIM2->PSC	= 3999;	//Prescalar, dividing clock by 4000
-	TIM2->CR1 	= 0x0001;	//enable Timer1
+	TIM2->CR1 	= 0x0001;	//enable Timer2
 	TIM2->ARR 	= 999;	//Load Count
 
 

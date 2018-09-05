@@ -1,7 +1,7 @@
 /* GVV Sharma 
  * September 5, 2018
  * 
- * Blink a LED using HSI clock and Timer1
+ * Blink a LED using Timer1 as master and Timer2 as slave
  */
 #include "stm32f103xb.h"
 
@@ -25,15 +25,16 @@ int main()
 	
 	/* Master - TIM1  */
 	TIM1->SMCR  = 0;	//Internal clock, 8MHz	
-	TIM1->PSC	= 0;	//Prescalar, dividing clock by 1000
+	TIM1->PSC	= 0;	//Prescalar
 	TIM1->ARR 	= 999;	//Load Count
 	TIM1->RCR 	= 0;	//Load Repetition Count	
 	TIM1->CR2	= 0x0020;//MMS = 010
 
 	/* Slave - TIM2  */
-	TIM2->PSC	= 0;	//Prescalar, dividing clock by 1
+	TIM2->PSC	= 0;	//Prescalar
 	TIM2->SMCR	= 0x0007;//TS = 000, SMS = 111	
-	TIM2->ARR 	= 999;	//Load Count	
+	TIM2->ARR 	= 999;	//Load Count
+		
 	TIM2->CR1 	= 0x0001;	//enable Timer2	
 	TIM1->CR1 	= 0x0001;	//enable Timer1
 
@@ -48,9 +49,9 @@ int main()
 	while(1)
 	{
 		//half second on, half second off
-		if(TIM2->SR & 0x0001)//check if ARR count complete
+		if(TIM2->SR & 0x0001)//check if TIM2 ARR count complete
 		{
-			TIM2->SR &= ~0x0001;//clear status register SR
+			TIM2->SR &= ~0x0001;//clear TIM2 status register SR
 			GPIOA->ODR ^= (1 << 1);//blink LED through PA1
 		}
 	}
