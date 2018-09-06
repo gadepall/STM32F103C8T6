@@ -35,6 +35,6 @@ https://electronics.stackexchange.com/questions/132000/stm32-series-microcontrol
 https://www.embeddedrelated.com/showarticle/478.php
 https://www.youtube.com/watch?v=mqA4ELmzCmM
 http://embedded-lab.com/blog/stm32-internals/
-https://electronics.stackexchange.com/questions/341726/outputting-4-50hz-pwms-on-stm32f103
+
 #Timer Master-Slave
 https://stackoverflow.com/questions/46745198/stm32f7-timer-triggers-timer
