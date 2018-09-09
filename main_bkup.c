@@ -1,10 +1,28 @@
 /* GVV Sharma 
- * September 5, 2018
+ * September 9 , 2018
  * 
- * Blink a LED using HSI clock and Timer1
+ * Blink a LED using HSE clock
+ * and SysTick timer
  */
 #include "stm32f103xb.h"
 
+void delay_us(uint32_t time)
+{
+	/*
+	 * Load the delay period in microseconds
+	 */
+	SysTick->LOAD = time;
+	/*
+	 * Clears the current value and the count flag
+	 */
+	SysTick->VAL = 0;
+	
+	/*
+	 * Waits until the count ends
+	 */
+//	while(!(SysTick->CTRL & SysTick_CTRL_COUNTFLAG_Msk));
+	while(!(SysTick->CTRL & 0x00010000));
+}
 
 int main()
 {
@@ -13,29 +31,23 @@ int main()
 	 */
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN |
 	    RCC_APB2ENR_IOPCEN | RCC_APB2ENR_IOPDEN | RCC_APB2ENR_AFIOEN;
-
-	/* enable the timer peripherals: */	
-	RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;  // enable Timer1
-	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;  // enable Timer2	
-
+	
 	/*
 	 * Disable JTAG and SWO (Free PB3, PB4 and PA15)
 	 */
 	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
-	
-	/* Master - TIM1  */
-	TIM1->SMCR  = 0;	//Internal clock, 8MHz	
-	TIM1->PSC	= 0;	//Prescalar
-	TIM1->ARR 	= 999;	//Load Count
-	TIM1->RCR 	= 0;	//Load Repetition Count	
-	TIM1->CR2	= 0x0020;//MMS = 010
 
-	/* Slave - TIM2  */
-	TIM2->PSC	= 0;	//Prescalar
-	TIM2->SMCR	= 0x0007;//TS = 000, SMS = 111	
-	TIM2->ARR 	= 3999;	//Load Count	
-	TIM2->CR1 	= 0x0001;	//enable Timer2	
-	TIM1->CR1 	= 0x0001;	//enable Timer1
+	/*HSE ON, HSI OFF*/
+	RCC->CR =0x00010000;
+	RCC->CFGR =0x00000001;	
+
+
+	/*
+	 * Enable the SysTick Timer with
+	 * the CPU clock
+	 */
+//	SysTick->CTRL = 0x00000001; //1MHz clock
+	SysTick->CTRL = 0x00000005;	//8MHz clock
 
 	/*
 	 * Enable the PA1 as a digital output
@@ -47,11 +59,9 @@ int main()
 	 */
 	while(1)
 	{
-		//half second on, half second off
-		if(TIM2->SR & 0x0001)//check if ARR count complete
-		{
-			TIM2->SR &= ~0x0001;//clear status register SR
-			GPIOA->ODR ^= (1 << 1);//blink LED through PA1
-		}
+		GPIOA->BSRR = GPIO_BSRR_BS1; //PA1 = 1 (Led OFF)
+		delay_us(4000000); //500ms delay
+		GPIOA->BSRR = GPIO_BSRR_BR1; //PA1 = 0 (Led ON)
+		delay_us(4000000); //500ms delay
 	}
 }

@@ -44,7 +44,7 @@ int main()
 
 	/*
 	 * Enable the SysTick Timer with
-	 * the CPU clock
+	 * the CPU clock divided by 8
 	 */
 //	SysTick->CTRL = 0x00000001; //1MHz clock
 	SysTick->CTRL = 0x00000005;	//8MHz clock
@@ -59,9 +59,12 @@ int main()
 	 */
 	while(1)
 	{
-		GPIOA->BSRR = (1 << 1); //PA1 = 1 (Led OFF)
-		delay_us(4000000); //500ms delay
-		GPIOA->BRR = (1 << 1);	//PA1 = 0 (Led ON)
-		delay_us(4000000); //500ms delay
+		if((~RCC->CFGR & 0x00000003)==2)
+		//GPIOA->BSRR = GPIO_BSRR_BS1; //PA1 = 1 (Led OFF)
+		//delay_us(4000000); //500ms delay
+		GPIOA->BSRR = GPIO_BSRR_BR1; //PA1 = 0 (Led ON)
+		else
+		GPIOA->BSRR = GPIO_BSRR_BS1; //PA1 = 1 (Led OFF)
+//		delay_us(4000000); //500ms delay
 	}
 }

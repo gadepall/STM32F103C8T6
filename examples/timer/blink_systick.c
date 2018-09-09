@@ -47,7 +47,7 @@ int main()
 	/*
 	 * Enable the PA1 as a digital output
 	 */
-	GPIOA->CRL = 0x00000020;
+	GPIOA->CRL = 0x00000030;
 
 	/*
 	 * Infinite loop
