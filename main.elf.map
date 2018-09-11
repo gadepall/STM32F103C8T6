@@ -340,99 +340,99 @@ LOAD /usr/lib/gcc/arm-none-eabi/5.4.1/crtn.o
  *(.flashtext)
                 0x0800010c                . = ALIGN (0x4)
 
-.text           0x0800010c      0x360
+.text           0x0800010c      0x36c
                 0x0800010c                . = ALIGN (0x4)
  *(.text)
- .text          0x0800010c       0x90 main.o
+ .text          0x0800010c       0x9c main.o
                 0x0800010c                delay_us
                 0x0800013c                main
- .text          0x0800019c      0x260 stm32f10x_it.o
-                0x0800019c                NMIException
-                0x080001a8                HardFaultException
-                0x080001b0                MemManageException
-                0x080001b8                BusFaultException
-                0x080001c0                UsageFaultException
-                0x080001c8                DebugMonitor
-                0x080001d4                SVCHandler
-                0x080001e0                PendSVC
-                0x080001ec                SysTickHandler
-                0x080001f8                WWDG_IRQHandler
-                0x08000204                PVD_IRQHandler
-                0x08000210                TAMPER_IRQHandler
-                0x0800021c                RTC_IRQHandler
-                0x08000228                FLASH_IRQHandler
-                0x08000234                RCC_IRQHandler
-                0x08000240                EXTI0_IRQHandler
-                0x0800024c                EXTI1_IRQHandler
-                0x08000258                EXTI2_IRQHandler
-                0x08000264                EXTI3_IRQHandler
-                0x08000270                EXTI4_IRQHandler
-                0x0800027c                DMAChannel1_IRQHandler
-                0x08000288                DMAChannel2_IRQHandler
-                0x08000294                DMAChannel3_IRQHandler
-                0x080002a0                DMAChannel4_IRQHandler
-                0x080002ac                DMAChannel5_IRQHandler
-                0x080002b8                DMAChannel6_IRQHandler
-                0x080002c4                DMAChannel7_IRQHandler
-                0x080002d0                ADC_IRQHandler
-                0x080002dc                USB_HP_CAN_TX_IRQHandler
-                0x080002e8                USB_LP_CAN_RX0_IRQHandler
-                0x080002f4                CAN_RX1_IRQHandler
-                0x08000300                CAN_SCE_IRQHandler
-                0x0800030c                EXTI9_5_IRQHandler
-                0x08000318                TIM1_BRK_IRQHandler
-                0x08000324                TIM1_UP_IRQHandler
-                0x08000330                TIM1_TRG_COM_IRQHandler
-                0x0800033c                TIM1_CC_IRQHandler
-                0x08000348                TIM2_IRQHandler
-                0x08000354                TIM3_IRQHandler
-                0x08000360                TIM4_IRQHandler
-                0x0800036c                I2C1_EV_IRQHandler
-                0x08000378                I2C1_ER_IRQHandler
-                0x08000384                I2C2_EV_IRQHandler
-                0x08000390                I2C2_ER_IRQHandler
-                0x0800039c                SPI1_IRQHandler
-                0x080003a8                SPI2_IRQHandler
-                0x080003b4                USART1_IRQHandler
-                0x080003c0                USART2_IRQHandler
-                0x080003cc                USART3_IRQHandler
-                0x080003d8                EXTI15_10_IRQHandler
-                0x080003e4                RTCAlarm_IRQHandler
-                0x080003f0                USBWakeUp_IRQHandler
- .text          0x080003fc       0x70 lib/libstm32.a(stm32f10x_vector.o)
-                0x080003fc                Reset_Handler
+ .text          0x080001a8      0x260 stm32f10x_it.o
+                0x080001a8                NMIException
+                0x080001b4                HardFaultException
+                0x080001bc                MemManageException
+                0x080001c4                BusFaultException
+                0x080001cc                UsageFaultException
+                0x080001d4                DebugMonitor
+                0x080001e0                SVCHandler
+                0x080001ec                PendSVC
+                0x080001f8                SysTickHandler
+                0x08000204                WWDG_IRQHandler
+                0x08000210                PVD_IRQHandler
+                0x0800021c                TAMPER_IRQHandler
+                0x08000228                RTC_IRQHandler
+                0x08000234                FLASH_IRQHandler
+                0x08000240                RCC_IRQHandler
+                0x0800024c                EXTI0_IRQHandler
+                0x08000258                EXTI1_IRQHandler
+                0x08000264                EXTI2_IRQHandler
+                0x08000270                EXTI3_IRQHandler
+                0x0800027c                EXTI4_IRQHandler
+                0x08000288                DMAChannel1_IRQHandler
+                0x08000294                DMAChannel2_IRQHandler
+                0x080002a0                DMAChannel3_IRQHandler
+                0x080002ac                DMAChannel4_IRQHandler
+                0x080002b8                DMAChannel5_IRQHandler
+                0x080002c4                DMAChannel6_IRQHandler
+                0x080002d0                DMAChannel7_IRQHandler
+                0x080002dc                ADC_IRQHandler
+                0x080002e8                USB_HP_CAN_TX_IRQHandler
+                0x080002f4                USB_LP_CAN_RX0_IRQHandler
+                0x08000300                CAN_RX1_IRQHandler
+                0x0800030c                CAN_SCE_IRQHandler
+                0x08000318                EXTI9_5_IRQHandler
+                0x08000324                TIM1_BRK_IRQHandler
+                0x08000330                TIM1_UP_IRQHandler
+                0x0800033c                TIM1_TRG_COM_IRQHandler
+                0x08000348                TIM1_CC_IRQHandler
+                0x08000354                TIM2_IRQHandler
+                0x08000360                TIM3_IRQHandler
+                0x0800036c                TIM4_IRQHandler
+                0x08000378                I2C1_EV_IRQHandler
+                0x08000384                I2C1_ER_IRQHandler
+                0x08000390                I2C2_EV_IRQHandler
+                0x0800039c                I2C2_ER_IRQHandler
+                0x080003a8                SPI1_IRQHandler
+                0x080003b4                SPI2_IRQHandler
+                0x080003c0                USART1_IRQHandler
+                0x080003cc                USART2_IRQHandler
+                0x080003d8                USART3_IRQHandler
+                0x080003e4                EXTI15_10_IRQHandler
+                0x080003f0                RTCAlarm_IRQHandler
+                0x080003fc                USBWakeUp_IRQHandler
+ .text          0x08000408       0x70 lib/libstm32.a(stm32f10x_vector.o)
+                0x08000408                Reset_Handler
  *(.text.*)
  *(.rodata)
  *(.rodata*)
  *(.glue_7)
- .glue_7        0x0800046c        0x0 linker stubs
+ .glue_7        0x08000478        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800046c        0x0 linker stubs
-                0x0800046c                . = ALIGN (0x4)
-                0x0800046c                _etext = .
-                0x0800046c                _sidata = _etext
+ .glue_7t       0x08000478        0x0 linker stubs
+                0x08000478                . = ALIGN (0x4)
+                0x08000478                _etext = .
+                0x08000478                _sidata = _etext
 
-.vfp11_veneer   0x0800046c        0x0
- .vfp11_veneer  0x0800046c        0x0 linker stubs
+.vfp11_veneer   0x08000478        0x0
+ .vfp11_veneer  0x08000478        0x0 linker stubs
 
-.v4_bx          0x0800046c        0x0
- .v4_bx         0x0800046c        0x0 linker stubs
+.v4_bx          0x08000478        0x0
+ .v4_bx         0x08000478        0x0 linker stubs
 
-.init           0x0800046c        0xc
- .init          0x0800046c        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
-                0x0800046c                _init
+.init           0x08000478        0xc
+ .init          0x08000478        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
+                0x08000478                _init
 
-.fini           0x08000478        0xc
- .fini          0x08000478        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
-                0x08000478                _fini
+.fini           0x08000484        0xc
+ .fini          0x08000484        0xc /usr/lib/gcc/arm-none-eabi/5.4.1/crti.o
+                0x08000484                _fini
 
-.iplt           0x08000484        0x0
- .iplt          0x08000484        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
+.iplt           0x08000490        0x0
+ .iplt          0x08000490        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
 
-.rel.dyn        0x08000484        0x0
- .rel.iplt      0x08000484        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
+.rel.dyn        0x08000490        0x0
+ .rel.iplt      0x08000490        0x0 /usr/lib/gcc/arm-none-eabi/5.4.1/crtbegin.o
 
-.data           0x20000000        0x0 load address 0x0800046c
+.data           0x20000000        0x0 load address 0x08000478
                 0x20000000                . = ALIGN (0x4)
                 0x20000000                _sdata = .
  *(.data)
