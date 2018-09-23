@@ -38,3 +38,7 @@ http://embedded-lab.com/blog/stm32-internals/
 
 #Timer Master-Slave
 https://stackoverflow.com/questions/46745198/stm32f7-timer-triggers-timer
+
+#LCD 16 x 2
+https://www.instructables.com/id/STM32F103-Interfacing-LCD-16x2-using-Mbedh/
+https://embeddedlifehelp.blogspot.com/2012/03/16x2-lcd-programming-for-beginners-made.html
