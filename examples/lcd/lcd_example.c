@@ -70,7 +70,6 @@ void SendByte (byte data)
 
  SendNibble(data >> 4); // send upper 4 bits
  SendNibble(data); // send lower 4 bits
-//GPIOA->BRR = 5;	
 }
 void LCD_Cmd (byte cmd)
 {
