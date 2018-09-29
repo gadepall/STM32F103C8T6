@@ -38,26 +38,23 @@ void delay_us(unsigned int time)
 }
 
 
-// MAIN PROGRAM
 int main(void)
 {
-char adstr[6];
+	char adstr[6];
+	unsigned int ad_acc, i;
+
 	/*
-	 * Enable all ports and Alternate Function clocks
+	 * Enable all Ports and Alternate Function clocks
+	 * and the ADC clock
 	 */
 	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_IOPBEN |
-	    RCC_APB2ENR_IOPCEN | RCC_APB2ENR_IOPDEN | RCC_APB2ENR_AFIOEN;
+	    RCC_APB2ENR_IOPCEN | RCC_APB2ENR_IOPDEN | RCC_APB2ENR_AFIOEN |
+		RCC_APB2ENR_ADC1EN;
 	
 	/*
 	 * Disable JTAG and SWO (Free PB3, PB4 and PA15)
 	 */
 	AFIO->MAPR = AFIO_MAPR_SWJ_CFG_JTAGDISABLE;
-
-
-	/*
-	 * Enable the SysTick Timer
-	 */
-	SysTick->CTRL = 0x00000001;// 1 MHz Clock
 
 // Select a clock source for ADC
 
@@ -84,13 +81,8 @@ ADC1->CR2 |= ADC_CR2_ADON | ADC_CR2_CAL | ADC_CR2_CONT;
 while((ADC1->CR2 & ADC_CR2_CAL) == 1){}
 
 
-	/*
-	 * 100ms delay to ensure that the
-	 * LCD display is properly powered on 
-	 */
-	delay_us(100000);
-
-
+  
+    // Print the results on LCD
 GPIOA->CRL = (GPIOA->CRL & 0xFF000000) | 0x00333333;//set A0-A5 as outputs
 
  LCD_Init(); // initialize LCD controller
@@ -98,13 +90,30 @@ GPIOA->CRL = (GPIOA->CRL & 0xFF000000) | 0x00333333;//set A0-A5 as outputs
  while(1)
  {
 
-   ADC1->CR2 |= ADC_CR2_ADON;
+ 		/*
+		 * Accumulate 32 measures
+		 */
+		//ad_acc = 0;
+		//for (i = 0; i < 32; i++)
+		//{
+			 // Start 
+    ADC1->CR2 |= ADC_CR2_ADON;
     while((ADC1->SR & ADC_SR_EOC) == 0){} // wait for end of conversion
-itoa(ADC1->DR, adstr, 10);    
+			//ad_acc += ADC1->DR;
+		//}
+
+		/*
+		 * Divide the accumulated measures
+		 * by 32 and convert it to a string
+		 */
+//		itoa(ad_acc >> 5, adstr, 10);
+		itoa(ADC1->DR, adstr, 10);
+
 LCD_Clear();
-//LCD_Message("Jai Hind"); 
 LCD_Message(adstr); 
 
 delay_us(600000);     // set animation speed 600 ms
+
 }
 }
+
