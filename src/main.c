@@ -71,8 +71,11 @@ RCC->CFGR &= ~(RCC_CFGR_PPRE2); // set APB2 prescaler to 1 (PCLK2)
 RCC->CFGR |= RCC_CFGR_ADCPRE;   // use ADC prescaler
 
 // Select a Sampling rate
-ADC1->SMPR1 |= ADC_SMPR1_SMP16;
-ADC1->SQR3 |= ADC_SQR3_SQ1_4; //set to convert the channel 16 fitst
+//ADC1->SMPR1 |= ADC_SMPR1_SMP16;
+//ADC1->SQR3 |= ADC_SQR3_SQ1_4; //set to convert the channel 16 fitst
+
+ADC1->SMPR1 |= ADC_SMPR2_SMP9;
+ADC1->SQR3 |=  0x000000120; //set to convert the channel 9 second
 
 // enable temperature sensor
 ADC1->CR2 |= ADC_CR2_TSVREFE;
@@ -90,8 +93,11 @@ while((ADC1->CR2 & ADC_CR2_CAL) == 1){}
 	 */
 	delay_us(100000);
 
-
 GPIOA->CRL = (GPIOA->CRL & 0xFF000000) | 0x00333333;//set A0-A5 as outputs
+GPIOB->CRL = 0x00000080;	//set B1 as input
+
+
+
 
  LCD_Init(); // initialize LCD controller
 
