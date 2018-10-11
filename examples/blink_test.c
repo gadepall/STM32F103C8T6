@@ -45,7 +45,7 @@ int main()
 	SysTick->CTRL = 0x00000005;	//8MHz clock
 
 	/*
-	 * Enable the PA1 as a digital output
+	 * Enable the PC13 as a digital output
 	 */
 	GPIOC->CRH = 0x00300000;
 
