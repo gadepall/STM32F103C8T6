@@ -1,5 +1,5 @@
 /* GVV Sharma 
- * August 24, 2018
+ * October 17, 2018
  * 
  * Blink a LED using HSI clock
  * and SysTick timer
@@ -45,7 +45,7 @@ int main()
 	SysTick->CTRL = 0x00000005;	//8MHz clock
 
 	/*
-	 * Enable the PA1 as a digital output
+	 * Enable the PC13 as a digital output
 	 */
 	GPIOC->CRH = 0x00300000;
 
