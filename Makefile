@@ -1,11 +1,11 @@
 PRJ_NAME   = main
-CC         = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-gcc
+CC         = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-gcc
 SRCDIR     = src
 SRC        = $(wildcard $(SRCDIR)/*.c)
 ASRC       = $(wildcard $(SRCDIR)/*.s)
 OBJ        = $(SRC:.c=.o) $(ASRC:.s=.o)
-OBJCOPY    = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-objcopy
-OBJDUMP    = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-objdump
+OBJCOPY    = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-objcopy
+OBJDUMP    = /data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-objdump
 PROGRAMMER = openocd
 PGFLAGS    = -f openocd.cfg -c "program $(PRJ_NAME).elf verify reset" -c shutdown
 DEVICE     = STM32F103xB
@@ -21,7 +21,7 @@ all: $(PRJ_NAME).elf
 
 $(PRJ_NAME).elf: $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $@ $(LDFLAGS)
-	/data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/install-native/bin/arm-none-eabi-size $(PRJ_NAME).elf
+	/data/data/com.termux/files/home/gcc-arm-none-eabi-8-2019-q3-update/bin/arm-none-eabi-size $(PRJ_NAME).elf
 
 %.o: %.c $(DEPS)
 	$(CC) -MMD -c $(CFLAGS) $< -o $@
